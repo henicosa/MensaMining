@@ -22,7 +22,7 @@ def bot_log():
 @app.route('/init')
 def init():
     global is_bot_running
-    subprocess.Popen(["python", "bot/bot.py"]) 
+    subprocess.Popen(["python", "app/main.py"]) 
     site = "<h1>initiate Bot!</h1>"
     is_bot_running = True
     return site
