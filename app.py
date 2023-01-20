@@ -15,15 +15,17 @@ def display_log(path):
 def bot_log():
     site = "<h1>Mensa Mining Bot Log</h1>"
 
-    site += "<div id=\"log\">" + display_log("log/botlog.txt") + "</div>"
+    site += "<div id=\"log\">" + display_log("app/log/botlog.txt") + "</div>"
 
     return site
 
 @app.route('/init')
 def init():
     global is_bot_running
-    subprocess.Popen(["python", "app/main.py"]) 
+    if not is_bot_running:
+        subprocess.Popen(["python", "app/main.py"]) 
     site = "<h1>initiate Bot!</h1>"
+    print("initiated Bot")
     is_bot_running = True
     return site
 

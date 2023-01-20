@@ -50,7 +50,7 @@ def say(text):
     logging.info(text)
     print(text)
 
-logging.basicConfig(filename="log/botlog.txt",
+logging.basicConfig(filename="app/log/botlog.txt",
                             filemode='a',
                             format='%(asctime)s,%(msecs)d %(name)s %(levelname)s %(message)s',
                             datefmt='%H:%M:%S',

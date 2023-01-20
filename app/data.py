@@ -46,7 +46,7 @@ def write_data_to_database(meal):
     conn.close()
 
 def raw_data_to_database():
-    path = 'raw'
+    path = 'app/raw'
     init_db()
     html_files = [file for file in glob.glob(path + '/**/*.html', recursive=True)]
     for filepath in html_files:
