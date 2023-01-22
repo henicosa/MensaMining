@@ -8,6 +8,8 @@ app = Flask(__name__)
 
 is_bot_running = False
 
+subprocess.Popen(["python", "app/main.py"]) 
+
 def display_log(path):
     return open(path).read().replace("\n", "<br>")
 
@@ -23,15 +25,19 @@ def bot_log():
 def init():
     global is_bot_running
     if not is_bot_running:
+        print("initiated Bot")
         subprocess.Popen(["python", "app/main.py"]) 
+    else:
+        print("Bot is running")
     site = "<h1>initiate Bot!</h1>"
-    print("initiated Bot")
+   
     is_bot_running = True
     return site
 
 @app.route('/')
 def index():
     text = ""
+    print("hi")
     if is_bot_running:
         text+= "<h1>Bot is running...</h1>"
     else:

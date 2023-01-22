@@ -63,7 +63,7 @@ def get_todays_mealpage():
 
     current_date = datetime.now().strftime("%Y-%m-%d")
 
-    directory_name = 'raw/' + current_year + "/" + current_month + "/" + current_day
+    directory_name = './raw/' + current_year + "/" + current_month + "/" + current_day
     path = os.getcwd()
 
     try:
@@ -99,13 +99,13 @@ def backup_db_to_json():
     print("start backup")
     json_object = json.dumps(db.users, indent=4)
     print("json object created")
-    with open("log/users.json", "w") as outfile:
+    with open("./log/users.json", "w") as outfile:
         outfile.write(json_object)
         print("wrote it to file")
 
 def restore_db_if_possible():
     if exists('log/users.json'):
-        with open('log/users.json', 'r') as openfile:
+        with open('./log/users.json', 'r') as openfile:
             dict_object = json.load(openfile)
             db.users = dict_object
 
